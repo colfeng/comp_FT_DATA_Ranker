@@ -14,18 +14,18 @@
 old model name or path：为原始百川模型路径
 new model name or path：为30m 混合token训练后的百川模型路径
 tokenizer：为原始百川tokenizer路径
-![](readme_md_files/7cdf9090-876f-11ee-9b60-ad408d72c699.jpeg?v=1&type=image)
+![](pic/7cdf9090-876f-11ee-9b60-ad408d72c699.jpeg?v=1&type=image)
 data_path: 为需要计算entropy的数据文件，分两次计算中文和英文的数据
-![](readme_md_files/c31ab0d0-876f-11ee-9b60-ad408d72c699.jpeg?v=1&type=image)
+![](pic/c31ab0d0-876f-11ee-9b60-ad408d72c699.jpeg?v=1&type=image)
 save_dir: 为两个模型对该数据计算entropy的存储
-![](readme_md_files/01b5e990-8770-11ee-9b60-ad408d72c699.jpeg?v=1&type=image)
+![](pic/01b5e990-8770-11ee-9b60-ad408d72c699.jpeg?v=1&type=image)
 ### 3.2 数据筛选
 基于本文档中的提交文件**LB_after.py**，分别对**10m_en_refine.jsonl**和**10m_zh_refine.jsonl**中数据进行筛选得到**10m_en_entropy.jsonl**和**10m_zh_entropy.jsonl**
 **LB_after.py**中的参数如下：
 get_res函数输入：**3.1 原模型与真实模型entropy计算**中记录entropy的文件
 in_file：待筛选的数据文件
 out_file: 筛选后的数据文件
-![](readme_md_files/37b88d80-8771-11ee-9b60-ad408d72c699.jpeg?v=1&type=image)
+![](pic/37b88d80-8771-11ee-9b60-ad408d72c699.jpeg?v=1&type=image)
 
 该部分原理是保留新模型上entropy小于原始模型上entropy的数据
 ### 3.3 数据再采样
