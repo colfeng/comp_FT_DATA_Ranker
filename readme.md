@@ -1,4 +1,9 @@
 # 方案总述
+- 本方案针对[**FT-Data-Ranker 7B赛道**](https://tianchi.aliyun.com/competition/entrance/532158)构建。
+- 本方案所属队伍为**DiMiner**（946288）
+- 本方案第一阶段取得排名为：第**2**名
+- 本方案最终取得排名为：第**3**名
+
 该代码的使用环境与竞赛使用的环境完全相同，具体可见竞赛页面的原提交指南的**0.竞赛速览**步至**2.下载数据和模型**步。
 
 该方案的思想在于在同样的训练的条件下（batch_size, epoch, learning rate 等），先使用更多的数据去训练一个的模型作为指导模型，用该指导模型去计算每一条数据的在训练前后的entropy（即原始未sft模型上和指导模型上分别计算entropy，entropy计算方法采用 [SelfCheckGPT](https://arxiv.org/abs/2303.08896)论文中的entropy计算方式）；接着再基于[LoBaSS](https://arxiv.org/abs/2310.13008)论文的假设，只有在指导模型上entropy比原始entropy小的数据才是模型在该条件下能学习到的数据，以此为标准进行数据筛选；最终，从这些entropy变小的数据中按比赛要求中英1：1抽样10M的token，进行最终模型的训练。
